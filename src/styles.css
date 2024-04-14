@@ -1,0 +1,149 @@
+@import "primeicons/primeicons.css";
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@600;700&display=swap');
+
+:root {
+  --bold-blue: #171a21;
+  --light-blue: #66c0f4;
+  --navy-blue: #1b2838;
+  --blue: #2a475e;
+  --gray: #c7d5e0;
+}
+
+body {
+  background-color: var(--bold-blue);
+  color: var(--gray);
+}
+
+.logo-font {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+input {
+  border: 2px solid var(--gray);
+  border-radius: 6px;
+  transition: 0.2s ease-in-out;
+  background-color: var(--bold-blue);
+}
+
+input:hover {
+  border: 2px solid var(--blue);
+}
+
+input:focus {
+  border: 2px solid var(--blue);
+  box-shadow: none;
+  background-color: var(--gray);
+}
+
+.input-error {
+  border: 2px solid rgb(204, 0, 0) !important;
+}
+
+.p-button {
+  transition: 0.2s ease-in-out;
+  box-shadow: none;
+  background-color: var(--blue);
+  color: var(--gray);
+  border: none;
+  border-radius: 6px;
+}
+
+.p-button:hover {
+  background: var(--gray);
+  color:black;
+}
+
+.p-dialog .p-dialog-header  {
+  text-align: center;
+  align-items: center;
+  background: var(--navy-blue);
+  color: var(--gray);
+  display: flex;
+  justify-content: space-between;
+  /* padding: 35px; */
+}
+
+.p-dialog .p-dialog-content {
+  background: var(--navy-blue);
+  color: var(--gray);
+  padding: 1rem;
+}
+
+.p-dialog .p-dialog-footer {
+  background: var(--navy-blue);
+  color: var(--gray);
+  /* padding-bottom: 25px; */
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1B2838 #C7D5E0;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 13px;
+}
+*::-webkit-scrollbar-track {
+  /* border-radius: 7px; */
+  background-color: #C7D5E0;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #C7D5E0;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #C7D5E0;
+}
+
+*::-webkit-scrollbar-thumb {
+  /* border-radius: 0 0 7px 7px; */
+  background-color: #1B2838;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #2A475E;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #2A475E;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--gray);
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+
+input:-webkit-autofill:focus{
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #23232329;
+}
+
+/* Estilo para ocultar o seletor de seta do input numérico */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}

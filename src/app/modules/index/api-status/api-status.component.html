@@ -1,0 +1,13 @@
+<div class="overlay" *ngIf="waitingAPIStatus">
+  <div class="message">
+    <div class="spinner-container">
+     <p-progressSpinner styleClass="loading-spin"></p-progressSpinner>
+    </div>
+    <!-- <i class="material-icons index-logo">attach_money</i><br> -->
+    <h2>Welcome to MEUDIN</h2><br>
+    We are establishing connection with our service.<br><br>
+    It may take a while if the API was in spin down.<br><br>
+    <span class="time-warning">(When in spin down, the estimated building time is 1m30s)</span>
+    <h3><b>There is no need to refresh the page!</b></h3>
+  </div>
+</div>

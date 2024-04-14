@@ -1,0 +1,104 @@
+<div class="wallet-container">
+  <div class="top-container">
+    <div class="left-container">
+      <span class="wallet-title">
+        <h1>My Wallet <i class="pi pi-wallet wallet-icon"></i></h1>
+        <h4>Balance</h4>
+      </span>
+
+      <span
+        class="balance" (ngModel)="userBalance" *ngIf="balanceLoaded"
+        [ngClass]="{'balance-positive': userBalance > 0, 'balance-negative': userBalance < 0}">
+        {{ userBalance | customCurrency }}
+      </span>
+    </div>
+
+    <div class="right-container">
+      <span class="this-month-balance">
+        <span class="right-cont-title">
+          THIS MONTH ({{ thisMonthName }})
+        </span><br>
+        <span class="income-amount">
+          <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">call_received</i>
+          <b>INCOME:</b> {{ monthBalance.income | customCurrency }} </span>
+        <span class="outcome-amount">
+          <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">call_made</i>
+          <b>OUTCOME:</b> {{ monthBalance.outcome | customCurrency }}</span>
+      </span>
+
+      <span class="all-time-balance">
+        <span class="right-cont-title">
+          ALL TIME
+        </span><br>
+        <span class="income-amount">
+          <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">call_received</i>
+          <b>INCOME:</b> {{ allTimeBalance.income | customCurrency }} </span>
+        <span class="outcome-amount">
+          <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">call_made</i>
+          <b>OUTCOME:</b> {{ allTimeBalance.outcome | customCurrency }}</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="bottom-container">
+    <div class="cards-header">
+      <h4>Credit Cards</h4>
+      <button pButton pRipple (click)="showAddModal()" label="Add Card" icon="pi pi-plus" iconPos="right" class="add-card-btn"></button>
+    </div>
+    <span class="card-description">
+      All of your cards will be displayed here. Click on any to open/edit its details.
+    </span>
+    <div class="cards-container">
+      <span class="card" *ngFor="let card of cards; let i = index" (click)="showEditModal(card)">
+        <div class="card-header">
+          <span class="card-title">
+            {{ card.cardName }} <br> <span class="light-blue">{{ card.finalDigits }}</span>
+          </span>
+          <span class="meudin-flag" (click)="deleteCard($event, card)">
+            <i class="delete-card-icon material-icons" pTooltip="Delete Card" tooltipPosition="top">close</i>
+          </span>
+        </div>
+        <div class="card-body">
+          <span class="card-info">
+            <b>Closing Day: </b> <span style="color: #EF4444;">{{ card.closingDay }}</span>
+          </span>
+          <span class="card-info">
+            <b>Payment Limit Day: </b> <span style="color: #EF4444;">{{ card.paymentLimitDay }}</span>
+          </span>
+        </div>
+        <div class="card-bottom">
+          <div class="invoice-row">
+            <span class="card-invoice">
+              <b>Current Invoice <span class="invoice-month">{{ getCompetenceMonth(card.currentInvoice.competence) }}</span>:</b> {{ card.currentInvoice.amount | customCurrency }}
+            </span>
+            <span class="invoice-tag">
+              <p-tag [severity]="getInvoiceSeverity(card.currentInvoice.closed, card.currentInvoice.paid)">
+                {{ getInvoiceStatus(card.currentInvoice.closed, card.currentInvoice.paid).toUpperCase() }}
+              </p-tag>
+            </span>
+          </div>
+
+          <div class="invoice-row">
+            <span class="card-invoice">
+              <b>Next Invoice <span class="invoice-month">{{ getCompetenceMonth(card.nextMonthInvoice.competence) }}</span>:</b> {{ card.nextMonthInvoice.amount | customCurrency }}
+            </span>
+            <span class="invoice-tag">
+              <p-tag [severity]="getInvoiceSeverity(card.nextMonthInvoice.closed, card.nextMonthInvoice.paid)">
+                {{ getInvoiceStatus(card.nextMonthInvoice.closed, card.nextMonthInvoice.paid).toUpperCase() }}
+              </p-tag>
+            </span>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+
+<app-card
+  [addEditCardModal]="addEditCardModal"
+  [selectedCard]="selectedCard"
+  (clickClose)="hideAddEditModal($event)"
+  (clickAddEdit)="reloadCards()"
+  ></app-card>
+<app-loading></app-loading>
+<p-toast></p-toast>

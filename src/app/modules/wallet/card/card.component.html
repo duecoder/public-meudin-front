@@ -1,0 +1,104 @@
+<!-- DIALOG DE ADD/EDIT CARD -->
+<p-dialog
+  [(visible)]="addEditCardModal"
+  [style]="{width: '450px'}"
+  [header]="actionText + ' Card'"
+  [modal]="true"
+  styleClass="p-fluid add-edit-dialog"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="closeModal()">
+
+  <ng-template pTemplate="content">
+    <form class="add-edit-form">
+      <div class="add-edit-input-div">
+        <div class="p-input-icon-left">
+          <i class="pi pi-list"></i>
+          <input
+            tooltipEvent="hover" [pTooltip]="this.card.cardName != '' ? 'Card name' : ''" tooltipPosition="top"
+            [ngClass]="{'input-error': cardNameEmpty}" [(ngModel)]="this.card.cardName"
+            id="card-name" name="card-name" type="text" pInputText placeholder="Card Name" />
+        </div>
+
+        <div class="p-input-icon-left">
+          <i class="pi pi-id-card"></i>
+          <input
+            tooltipEvent="hover" [pTooltip]="this.card.finalDigits != '' ? 'Last 4 Digits' : ''" tooltipPosition="top"
+            (keypress)="onKeyPress($event)"
+            [ngClass]="{'input-error': digitsEmpty}" [(ngModel)]="this.card.finalDigits"
+            id="final-digits" name="final-digits" type="number" pInputText placeholder="Last 4 Digits" />
+        </div>
+      </div>
+
+      <div class="add-edit-input-div">
+        <div class="p-input-icon-left">
+          <i class="pi pi-exclamation-triangle"></i>
+          <input
+            tooltipEvent="hover" [pTooltip]="this.card.closingDay != '' ? 'Closing day' : ''" tooltipPosition="bottom" (keypress)="onKeyPress($event)"
+            [ngClass]="{'input-error': closingDayEmpty}" [(ngModel)]="this.card.closingDay"
+            id="closing-day" name="closing-day" type="number" pInputText [placeholder]="this.card.closingDay == '' ? 'Closing Day' : ''" />
+        </div>
+
+        <div class="p-input-icon-left">
+          <i class="pi pi-dollar"></i>
+          <input
+            [pTooltip]="this.card.paymentLimitDay != '' ? 'Payment limit day' : ''" tooltipPosition="bottom"
+            tooltipEvent="hover" (keypress)="onKeyPress($event)"
+            [ngClass]="{'input-error': limitDayEmpty}" [(ngModel)]="this.card.paymentLimitDay"
+            id="limit-day" name="limit-day" type="number" pInputText [placeholder]="this.card.paymentLimitDay == '' ? 'Payment Day' : ''" />
+        </div>
+      </div>
+    </form>
+    <div class="invoice-div" *ngIf="this.selectedCard != null">
+      <p-divider align="center">
+        <span class="p-tag current-invoice-tag">CURRENT INVOICE</span>
+      </p-divider>
+
+      <span class="current-invoice-data">
+        <div class="amount-tag">
+          <p-tag [severity]="getInvoiceSeverity(card.currentInvoice.closed, card.currentInvoice.paid)">
+            {{ getInvoiceStatus(card.currentInvoice.closed, card.currentInvoice.paid).toUpperCase() }}
+          </p-tag>
+          <span class="invoice-amount">
+            {{ card.currentInvoice.amount | customCurrency }}
+          </span>
+        </div>
+        <button
+          pButton pRipple label="Pay Invoice" icon="pi pi-money-bill"
+          [disabled]="(card.currentInvoice.closed && card.currentInvoice.paid) || (!card.currentInvoice.closed && !card.currentInvoice.paid)"
+          class="p-button-text payment-button" (click)="payInvoice(card.currentInvoice)">
+        </button>
+      </span>
+    </div>
+
+    <div class="invoice-div" *ngIf="this.selectedCard != null">
+      <p-divider align="center">
+        <span class="p-tag current-invoice-tag">NEXT INVOICE</span>
+      </p-divider>
+
+      <span class="current-invoice-data">
+        <div class="amount-tag">
+          <p-tag [severity]="getInvoiceSeverity(card.nextMonthInvoice.closed, card.nextMonthInvoice.paid)">
+            {{ getInvoiceStatus(card.nextMonthInvoice.closed, card.nextMonthInvoice.paid).toUpperCase() }}
+          </p-tag>
+          <span class="invoice-amount">
+            {{ card.nextMonthInvoice.amount | customCurrency }}
+          </span>
+        </div>
+        <!-- <button
+          pButton pRipple label="Pay Invoice" icon="pi pi-money-bill"
+          [disabled]="(card.nextMonthInvoice.closed && card.nextMonthInvoice.paid) || (!card.nextMonthInvoice.closed && !card.nextMonthInvoice.paid)"
+          class="p-button-text payment-button" (click)="payInvoice(card.nextMonthInvoice)">
+        </button> -->
+      </span>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+      <button pButton pRipple label="Close" icon="pi pi-times" class="p-button-text spends-table-btn" (click)="closeModal()"></button>
+      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text spends-table-btn" (click)="addEditCard()"></button>
+  </ng-template>
+</p-dialog>
+
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

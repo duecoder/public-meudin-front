@@ -1,0 +1,54 @@
+
+<form [formGroup]="formGroup" class="register-modal">
+  <div class="personal-title">
+    <p>Now, let's create an user for you</p>
+  </div>
+
+  <div class="register-input">
+    <div class="p-input-icon-left">
+      <i class="pi pi-user"></i>
+      <input
+        maxlength="20"
+        tooltipEvent="focus"
+        [pTooltip]="formGroup.controls['username'].invalid && formGroup.controls['username'].touched ? 'Min 6 characters' : ''"
+        [ngClass]="{'input-error': !formGroup.controls['username'].valid && formGroup.controls['username'].touched || usernameEmpty}"
+        id="username" type="text" pInputText placeholder="Username" formControlName="username" />
+    </div>
+  </div>
+
+  <div class="register-input">
+    <div class="p-input-icon-left">
+      <i class="pi pi-lock"></i>
+      <input
+        tooltipEvent="focus"
+        [pTooltip]="formGroup.controls['password'].invalid && formGroup.controls['password'].touched ? 'Min 8 characters - 1 Letter - 1 Number' : ''"
+        [ngClass]="{'input-error': !formGroup.controls['password'].valid && formGroup.controls['password'].touched || passwordEmpty}"
+        id="password" type="password" pInputText placeholder="Password" formControlName="password" />
+    </div>
+  </div>
+
+  <div class="register-input">
+    <div class="p-input-icon-left">
+      <i class="pi pi-lock"></i>
+      <input
+        tooltipEvent="focus"
+        [pTooltip]="formGroup.controls['confPassword'].invalid && formGroup.controls['confPassword'].touched ? 'Re-enter your password' : ''"
+        [ngClass]="{'input-error': !formGroup.controls['confPassword'].valid && formGroup.controls['confPassword'].touched || passwordConfEmpty}"
+        id="password-conf" type="password" pInputText placeholder="Confirm Password" formControlName="confPassword" />
+    </div>
+  </div>
+
+  <div *ngIf="error" class="register-error">
+    <i class="material-icons">error_outline</i>
+    {{ errorMsg }}
+  </div>
+
+  <div class="next-btn">
+    <a role="button" (click)="prevPage()" class="a-next">
+      <i class="material-icons arrow">keyboard_backspace</i> GO BACK
+    </a>
+    <a role="button" (click)="register()" class="a-next">
+      REGISTER <i class="material-icons arrow">done</i>
+    </a>
+  </div>
+</form>

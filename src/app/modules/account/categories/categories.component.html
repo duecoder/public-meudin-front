@@ -1,0 +1,37 @@
+<div class="tab-container">
+  <span class="tab-title">Create a new category</span>
+
+  <div class="add-category-row">
+    <span class="p-float-label">
+      <input
+        pInputText id="new-category"
+        [(ngModel)]="newCategory"
+        [ngClass]="{'input-error': newCategoryEmpty}" />
+      <label htmlFor="name">New category description</label>
+    </span>
+
+    <button
+      pButton pRipple icon="pi pi-plus"
+      class="p-button-success mr-2 new-category-btn" (click)="addCategory()"></button>
+  </div>
+
+  <div class="content-row">
+    <span class="tab-title">My created categories</span>
+  </div>
+
+  <div class="categories-box">
+    <span class="category-tag" *ngFor="let category of categories; let i = index"
+      [style.grid-row-start]="calculateGridRowStart(i)"
+      [style.grid-column-start]="calculateGridColumnStart(i)">
+      {{category.description}}
+      <i
+        [pTooltip]="'Delete'" tooltipPosition="top"
+        class="pi pi-times x-icon" (click)="deleteCategory(category.categoryId, category.description, category.userDefault)"></i>
+    </span>
+    <p *ngIf="categories.length == 0">You don't have any category registered yet.</p>
+  </div>
+</div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+<p-toast></p-toast>
+<app-loading></app-loading>

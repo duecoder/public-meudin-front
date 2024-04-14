@@ -1,0 +1,24 @@
+.password-switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+.save-data-btn:hover {
+  background: var(--gray);
+  color:black;
+}
+
+::ng-deep .p-inputswitch .p-inputswitch-slider {
+  background-color: var(--blue);
+  box-shadow: none;
+}
+
+::ng-deep .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+  background: var(--gray);
+}
+
+::ng-deep .p-inputswitch .p-inputswitch-slider:before {
+  background: var(--navy-blue)
+}

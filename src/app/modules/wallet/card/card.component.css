@@ -1,0 +1,88 @@
+.add-edit-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 1em;
+  width: 80%;
+  padding-bottom: 1.5em;
+}
+
+.add-edit-input-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: .5em;
+}
+
+.current-invoice-tag {
+  background: var(--bold-blue);
+}
+
+.current-invoice-data {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.invoice-amount {
+  font-family: 'Smooch Sans', sans-serif;
+  font-size: 1.9em;
+}
+
+.invoice-div {
+  padding-bottom: 1.4em;
+}
+
+.amount-tag {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.payment-button {
+  /* margin: 0 .5rem; */
+  width: 10em;
+  height: 2.1em;
+  background: var(--bold-blue);
+  transition: .2s ease-in-out;
+  /* height: 1em; */
+}
+
+.payment-button:hover {
+  color: black;
+  background: #EF4444;
+}
+
+::ng-deep .p-element .add-edit-dialog {
+  width: 70vh !important;
+}
+
+::ng-deep .p-divider.p-divider-horizontal:before {
+  border-top: 1px var(--blue);
+  border-top-style: solid;
+}
+
+::ng-deep .p-divider .p-divider-content {
+  background: none;
+}
+
+::ng-deep .p-confirm-dialog-accept:hover {
+  background: var(--gray);
+  color:black;
+}
+
+::ng-deep .p-confirm-dialog-reject:hover {
+  background: var(--gray);
+  color:black;
+}
+
+::ng-deep .p-confirm-dialog .p-dialog-content {
+  padding: 1em;
+  padding-bottom: 3em;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}

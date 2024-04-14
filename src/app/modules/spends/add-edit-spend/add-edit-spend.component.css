@@ -1,0 +1,189 @@
+.add-edit-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 1em;
+  width: 80%;
+  padding-bottom: 1.5em;
+}
+
+.add-edit-input-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: .5em;
+}
+
+.add-edit-spend-input {
+  height: 50px;
+}
+
+.edit-info {
+  display: flex;
+  color: var(--gray);
+  font-weight: bold;
+  font-size: .9em;
+  align-items: center;
+  justify-content: center;
+  gap: .8em;
+  padding: .8em;
+  margin: 0em 5em 1.2em 5em;
+  border-radius: 40px;
+  background: var(--blue);
+  transition: .3s ease-in-out;
+}
+
+.edit-info:hover {
+  background: var(--bold-blue);
+}
+
+.edit-info i {
+  color: var(--light-blue);
+  font-size: 1.3em !important;
+}
+
+.nature-radio-btn {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: 0 1em;
+}
+
+.category-icon {
+  padding-right: .8em;
+}
+
+.category-label-div {
+  display: flex;
+  align-items: center;
+}
+
+.calendar-class {
+  background-color: var(--bold-blue);
+}
+
+.card-picker {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-picker-switch {
+  display: flex;
+  align-items: center;
+  gap: .4em;
+}
+
+::ng-deep .p-datepicker {
+  color: var(--gray);
+  background: var(--bold-blue);
+}
+
+::ng-deep .p-datepicker-header {
+  color: var(--gray);
+  background: var(--bold-blue);
+  border-bottom: 2px solid var(--gray);
+  /* border: none; */
+}
+
+::ng-deep .p-datepicker-month, ::ng-deep .p-datepicker-year {
+  color: var(--gray);
+}
+
+::ng-deep .p-datepicker-month:hover, ::ng-deep .p-datepicker-year:hover {
+  color: var(--light-blue);
+}
+
+::ng-deep .p-datepicker-title:hover {
+  color: var(--light-blue);
+}
+
+::ng-deep .p-datepicker table td > span:hover {
+  color: black;
+  background: var(--gray);
+}
+
+::ng-deep .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):not(.p-highlight):hover,
+::ng-deep .p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):not(.p-highlight):hover {
+  color: black;
+  background: var(--gray);
+}
+
+::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+  box-shadow: none;
+}
+
+::ng-deep .p-dropdown {
+  border: none;
+  outline: none;
+  border: 2px solid var(--gray);
+  transition: 0.2s ease-in-out;
+  background: var(--bold-blue);
+  color: var(--gray);
+}
+
+::ng-deep .p-dropdown:hover {
+  border: 2px solid var(--blue);
+}
+
+
+::ng-deep .p-dropdown-panel {
+  background: var(--gray);
+  color: black;
+}
+
+::ng-deep .p-dropdown-panel .p-dropdown-header {
+  background: var(--gray);
+  color: black;
+}
+
+::ng-deep .p-dropdown-filter {
+  height: 2em;
+  background-color: var(--gray);
+  border-color: var(--bold-blue);
+}
+
+::ng-deep .p-element .add-edit-dialog {
+  width: 70vh !important;
+}
+
+::ng-deep .p-checkbox .p-focus {
+  border-color: var(--gray);
+}
+
+::ng-deep .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
+  box-shadow: none;
+}
+
+::ng-deep .p-radiobutton .p-radiobutton-box {
+  align-items: center;
+  background: none;
+  box-shadow: none;
+}
+
+::ng-deep .p-radiobutton .p-radiobutton-box.p-highlight {
+  background: initial;
+  border-color: var(--light-blue);
+}
+
+::ng-deep .p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
+  border-color: var(--light-blue);
+}
+
+::ng-deep .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
+  background-color: var(--light-blue);
+}
+
+::ng-deep .p-inputswitch .p-inputswitch-slider {
+  background-color: var(--blue);
+  box-shadow: none;
+}
+
+::ng-deep .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+  background: var(--gray);
+}
+
+::ng-deep .p-inputswitch .p-inputswitch-slider:before {
+  background: var(--navy-blue)
+}

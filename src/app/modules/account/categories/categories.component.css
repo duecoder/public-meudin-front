@@ -1,0 +1,43 @@
+.new-category-btn {
+  border-radius: 50%;
+}
+
+.new-category-btn:hover {
+  background: #22C55E;
+  color: black;
+}
+
+.categories-box {
+  display: grid;
+  flex-direction: row;
+  gap: 2em;
+  padding-bottom: 2em;
+}
+
+.add-category-row {
+  display: flex;
+  gap: .7em;
+}
+
+.category-tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .8em 1.2em;
+  width: 15vw;
+  border-radius: 40px;
+  background: var(--light-blue);
+  color: black;
+  transition: .2s ease-in-out;
+  font-weight: bold;
+}
+
+.category-tag:hover {
+  background: var(--bold-blue);
+  color: var(--gray);
+}
+
+.x-icon {
+  cursor: pointer;
+  font-size: .9em;
+}

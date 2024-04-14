@@ -1,0 +1,58 @@
+.register-form {
+  margin: 0 auto;
+  background-color: var(--bold-gray);
+}
+
+.register-modal {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+  gap: 10px;
+}
+
+.register-input {
+  flex-direction: column;
+  gap: 2px;
+}
+
+.arrow {
+  transition: .2s ease-in-out;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.next-btn {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.a-next {
+  padding: 5px;
+  transition: .3s ease-in-out;
+  color: var(--gray);
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 3px;
+}
+
+.a-next:hover {
+  background-color: var(--gray);
+  color: var(--blue);
+  border-radius: 3px;
+}
+
+.register-error {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 50%;
+  margin: 0 auto;
+  color: #ff0000;
+}

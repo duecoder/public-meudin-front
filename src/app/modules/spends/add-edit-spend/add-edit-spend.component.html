@@ -1,0 +1,129 @@
+<!-- DIALOG DE ADD/EDIT SPEND -->
+<p-dialog
+  [(visible)]="addEditModalDisplay"
+  [style]="{width: '450px'}"
+  [header]="actionText + ' Spend'"
+  [modal]="true"
+  styleClass="p-fluid add-edit-dialog"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="closeModal()">
+    <ng-template pTemplate="content">
+
+      <div class="edit-info" *ngIf="selectedSpend != null">
+        <i class="material-icons" style="font-size: 1rem; padding-right: 2px;">tips_and_updates</i>
+        It's not possible to edit spend's nature
+      </div>
+      <form class="add-edit-form">
+        <div class="add-edit-input-div">
+          <span class="nature-radio-btn">
+            <p-radioButton
+              [disabled]="selectedSpend != null"
+              [(ngModel)]="incomeRadioBtnValue" [required]="true"
+              name="nature" value="income" inputId="income"></p-radioButton>
+            <label for="income">
+              <p-tag
+                value="INCOME"
+                [severity]="'success'">
+                <i class="material-icons" style="font-size: 1rem; padding-right: 2px;">
+                  call_received
+                </i>
+              </p-tag>
+            </label>
+          </span>
+
+          <span class="nature-radio-btn">
+            <p-radioButton
+              [disabled]="selectedSpend != null"
+              [(ngModel)]="incomeRadioBtnValue" [required]="true"
+              name="nature" value="outcome" inputId="outcome"></p-radioButton>
+            <label for="outcome">
+              <p-tag
+              value="OUTCOME"
+              [severity]="'danger'">
+              <i class="material-icons" style="font-size: 1rem; padding-right: 2px;">
+                call_made
+              </i>
+            </p-tag>
+            </label>
+          </span>
+        </div>
+
+        <div class="add-edit-input-div">
+          <div class="p-input-icon-left">
+            <i class="pi pi-file-edit"></i>
+            <input
+              tooltipEvent="focus" maxlength="40"
+              [ngClass]="{'input-error': descriptionEmpty}" [(ngModel)]="description"
+              id="description" name="description" type="text" pInputText placeholder="Description" />
+          </div>
+        </div>
+
+        <div class="add-edit-input-div">
+          <p-dropdown
+            [filter]="true"
+            [options]="categories" optionLabel="label" optionDisabled="inactive"
+            appendTo="body" [style]="{width: '12vw'}">
+            <ng-template pTemplate="selectedItem">
+              <div class="category-label-div">
+                <i class="pi pi-filter category-icon"></i>{{selectedCategoryLabel}}
+              </div>
+            </ng-template>
+            <ng-template let-option pTemplate="item">
+              <div class="category-label-div" (click)="updateSelectedCategory(option)">
+                {{option.label}}
+              </div>
+            </ng-template>
+          </p-dropdown>
+
+          <div class="p-input-icon-left">
+            <i class="pi pi-dollar"></i>
+            <input
+              tooltipEvent="focus"
+              [ngClass]="{'input-error': costEmpty}" [(ngModel)]="cost"
+              id="cost" name="cost" type="number" pInputText [placeholder]="cost == null ? 'Cost' : ''" />
+          </div>
+        </div>
+
+        <div class="card-picker">
+          <div class="card-picker-switch">
+            <h5>Is this spend from a card?</h5>
+            <p-inputSwitch
+              [disabled]="incomeRadioBtnValue === 'income' || cards.length == 0"
+              [(ngModel)]="cardSpend"
+              [ngModelOptions]="{standalone: true}"></p-inputSwitch>
+          </div>
+          <p-dropdown
+            [disabled]="!this.cardSpend || incomeRadioBtnValue === 'income'"
+            [options]="cards" optionLabel="label" optionDisabled="inactive"
+            appendTo="body" [style]="{width: '12vw'}">
+            <ng-template pTemplate="selectedItem">
+              <div class="category-label-div">
+                <i class="pi pi-id-card category-icon"></i>{{selectedCardLabel}}
+              </div>
+            </ng-template>
+            <ng-template let-option pTemplate="item">
+              <div class="category-label-div" (click)="updateSelectedCard(option)">
+                {{option.label}}
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div class="add-edit-input-div">
+          <!--[disabled]="this.cardSpend && incomeRadioBtnValue === 'outcome'"-->
+          <p-calendar
+            (onInput)="onDateInput($event)"
+            [(ngModel)]="date" [showIcon]="true" dateFormat="dd/mm/yy"
+            [ngModelOptions]="{standalone: true}"
+            placeholder="Date of your spend" appendTo="body" inputId="icon"
+            panelStyleClass="calendar-class"></p-calendar>
+        </div>
+      </form>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text spends-table-btn" (click)="closeModal()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text spends-table-btn" (click)="addEditSpend()"></button>
+    </ng-template>
+</p-dialog>

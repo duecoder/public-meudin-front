@@ -1,0 +1,91 @@
+.menu-logo {
+  font-size: 2em;
+  color: var(--light-blue);
+  padding: 0 10px;
+}
+
+.logo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.logo-name {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+  color: var(--gray);
+}
+
+.tabmenu-div {
+  /* padding-left: 1.2em; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--navy-blue);
+  /* background: linear-gradient(0deg, rgba(27,40,56,1) 13%, rgba(23,26,33,1) 100%); */
+  border-radius: 8px 8px 0px 0px;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav {
+  background: none;
+  /* background: var(--gray); */
+  border: none;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+  background: none;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+  /* border-bottom: .3em solid var(--blue); */
+  background: var(--bold-blue);
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled) .p-menuitem-link {
+  transition: .3s ease-in-out;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
+  /* background: none; */
+  background: var(--blue);
+  color: black;
+  /* border-bottom: 5px solid var(--blue); */
+}
+
+::ng-deep .p-menubar {
+  background: #1b2838;
+  border: 1px solid #171a21;
+}
+
+::ng-deep .p-menuitem-content {
+  transition: .2s ease-in-out;
+}
+
+::ng-deep .p-menuitem-content:hover {
+  background-color: var(--blue);
+}
+
+::ng-deep .p-menuitem.p-focus {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .p-menuitem-text {
+  transition: .2s ease-in-out;
+  color: var(--gray);
+}
+
+::ng-deep .p-menuitem-icon {
+  transition: .2s ease-in-out;
+  color: var(--gray);
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-menuitem-badge {
+  font-size: .65em;
+  background-color: #EF4444;
+  /* background-color: var(--light-blue); */
+  color: black;
+}

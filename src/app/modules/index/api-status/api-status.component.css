@@ -1,0 +1,48 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5);  */
+  background-color: #0b0e13ec;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-container {
+  /* background-color: #fff; */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.message {
+  width: 30%;
+  padding: 2em;
+  padding-bottom: 3em;
+  /* background: #171a21d2; */
+  /* display: flex; */
+  justify-content: center;
+  text-align: center;
+  border-radius: 12px;
+  /* flex-direction: column; */
+}
+
+.message h3 {
+  color: var(--light-blue);
+  transition: .2s ease-in-out;
+}
+
+.time-warning {
+  color: rgba(151, 151, 151, 0.726);
+  font-size: .7em;
+  /* padding-top: 10px; */
+  font-weight: bold;
+}
+
+.message h3:hover {
+  color: var(--blue);
+}
+

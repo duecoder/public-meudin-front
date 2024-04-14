@@ -1,0 +1,296 @@
+.home-container {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 4.5em;
+}
+
+.right-container {
+  width: 58%;
+  margin-top: 1.7em;
+  margin-bottom: 3em;
+  min-height: 70vh;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0em 2em 0em 0em;
+  min-height: 70vh;
+  width: 42%;
+  margin-bottom: 3em;
+}
+
+.logos {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background: linear-gradient(0deg, rgba(27,40,56,1) 100%, rgba(23,26,33,1) 13%);
+  border-left: 2px solid var(--blue);
+  border-right: 2px solid var(--blue);
+  border-radius: 0 13px 0px 13px;
+}
+
+.logos i {
+  font-size: 3.5em;
+  color: var(--light-blue);
+  transition: .1s ease-in-out;
+}
+
+.logos i:hover {
+  color: var(--blue);
+}
+
+.title {
+  display: flex;
+  margin-top: .4em;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.meudin-title {
+  position: absolute;
+  top: 27%;
+  margin-left: 11em;
+  text-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  text-align: right;
+}
+
+.meudin-title h1 {
+  font-size: 5em;
+}
+
+.meudin-title p {
+  position: absolute;
+  top: 8em;
+}
+
+.left-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1.6em;
+  margin-bottom: 2em;
+}
+
+.home-card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 1em;
+  background-color: var(--navy-blue);
+}
+
+.home-card-header {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  font-size: 1.2em;
+  padding: 1em;
+  font-weight: bold;
+  background: var(--blue);
+  border-radius: 5px 5px 0px 0;
+}
+
+.home-card-content {
+  padding: .8em;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5em;
+  font-weight: bold;
+  background: var(--bold-blue);
+  border-bottom: 1px solid var(--blue);
+  font-family: 'Smooch Sans', sans-serif;
+}
+
+.info-card-content {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  gap: .2em;
+  background: #171a2163;
+  border-bottom: 1px solid var(--blue);
+  transition: .3s ease-in-out;
+}
+
+.info-card-content:hover {
+  background: var(--bold-blue);
+}
+
+.info-card-content i {
+  font-size: 1.1em;
+  color: var(--light-blue);
+}
+
+.info-content {
+  font-size: .75em;
+  color: var(--gray);
+}
+
+.content-left {
+  display: flex;
+  align-items: center;
+}
+
+.content-right {
+  display: flex;
+  align-items: center;
+}
+
+.total-balance {
+  display: flex;
+  align-items: center;
+}
+
+.balance-positive {
+  color: #22C55E;
+}
+
+.balance-negative {
+  color: #EF4444;
+}
+
+.home-card-footer {
+  display: flex;
+  padding: 1em;
+  justify-content: flex-end;
+}
+
+.home-button {
+  background-color: var(--light-blue);
+  color: black;
+}
+
+.home-button:hover {
+  background-color: var(--bold-blue);
+  color: var(--gray);
+}
+
+.card-icon {
+  font-size: 1em;
+}
+
+.timeline-icon {
+  color: var(--gray);
+  font-size: 1.4em;
+}
+
+.chart {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 1.5em;
+  margin: 2em 0;
+  padding-bottom: 2em;
+  background: var(--navy-blue);
+  /* box-shadow: 1px 1px 1px var(--light-blue); */
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.month-picker {
+  display: flex;
+  flex-direction: column;
+  gap: .3em;
+}
+
+.month-label {
+  font-size: .8em;
+  color: #c7d5e08f;
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  gap: .3em;
+  font-size: 1.4em;
+  font-weight: bold;
+  /* margin-bottom: 1.3em; */
+}
+
+.chart-title i {
+  font-size: 1.3em;
+}
+
+::ng-deep .p-card {
+  background: var(--navy-blue);
+  color: var(--gray);
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
+
+::ng-deep .p-card:hover {
+  background: var(--bold-blue);
+  /* color: black; */
+}
+
+::ng-deep .p-card .p-card-title {
+  font-size: 1.2em;
+}
+
+::ng-deep .p-card .p-card-content {
+  padding: .2em 0;
+  font-size: .85em;
+}
+
+::ng-deep .p-timeline .p-timeline-event-connector {
+  background-color: var(--blue);
+  width: 3px;
+}
+
+::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link {
+  background: var(--navy-blue);
+  border: 1px solid var(--navy-blue);
+  color: var(--gray);
+}
+
+::ng-deep .p-accordion .p-accordion-content {
+  border:none;
+  background: linear-gradient(0deg, rgba(23,26,33,1) 13%, rgba(27,40,56,1) 100%);
+}
+
+::ng-deep .p-datepicker {
+  color: var(--gray);
+  background: var(--bold-blue);
+}
+
+::ng-deep .p-datepicker-header {
+  color: var(--gray);
+  background: var(--bold-blue);
+  border-bottom: 2px solid var(--gray);
+  /* border: none; */
+}
+
+::ng-deep .p-datepicker-month, ::ng-deep .p-datepicker-year {
+  color: var(--gray);
+}
+
+::ng-deep .p-datepicker-month:hover, ::ng-deep .p-datepicker-year:hover {
+  color: var(--light-blue);
+}
+
+::ng-deep .p-datepicker-title:hover {
+  color: var(--light-blue);
+}
+
+::ng-deep .p-datepicker table td > span:hover {
+  color: black;
+  background: var(--gray);
+}
+
+::ng-deep .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):not(.p-highlight):hover,
+::ng-deep .p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):not(.p-highlight):hover {
+  color: black;
+  background: var(--gray);
+}
+
+::ng-deep .p-tag.p-tag-warning {
+  background-color: var(--light-blue);
+  color: black;
+  font-size: .6em;
+}

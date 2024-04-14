@@ -1,0 +1,163 @@
+.card {
+  padding: 1.2em 5em;
+  margin-bottom: 4em;
+}
+
+.spends-table-btn {
+  margin: 0 .5rem;
+}
+
+.spends-table-btn:hover {
+  background: var(--gray);
+  color:black;
+}
+
+.export-btn {
+  background: var(--gray);
+  color:black;
+}
+
+.export-btn:hover {
+  background: var(--light-blue);
+}
+
+.spend-action-btn {
+  border-radius: 30px;
+  margin-right: .5rem;
+}
+
+.spend-action-btn:hover {
+  background: var(--light-blue);
+  color: black;
+}
+
+.spend-delete-btn {
+  width: 2.4em;
+  height: 2.4em;
+  /* padding: 1em; */
+}
+
+.spend-delete-btn:hover {
+  background: red;
+  color: var(--gray);
+}
+
+.p-datatable-tbody {
+  background: red;
+}
+
+::ng-deep .p-button-icon {
+  font-size: .8em;
+}
+
+::ng-deep .p-confirm-dialog-accept:hover {
+  background: var(--gray);
+  color:black;
+}
+
+::ng-deep .p-confirm-dialog-reject:hover {
+  background: var(--gray);
+  color:black;
+}
+
+::ng-deep .p-dialog .p-dialog-header {
+  justify-content: space-between ;
+}
+
+::ng-deep .p-confirm-dialog .p-dialog-content {
+  padding: 1em;
+  padding-bottom: 3em;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+::ng-deep .p-toolbar {
+  background-color: var(--navy-blue);
+  border: none;
+}
+
+/* DATATABLE WRAPPER */
+::ng-deep .p-datatable > .p-datatable-wrapper {
+  border-radius: 8px;
+  margin: .8em 0;
+}
+
+/* CHECKBOX */
+::ng-deep .p-checkbox .p-checkbox-box {
+  background: none;
+}
+
+::ng-deep .p-checkbox .p-checkbox-box:hover {
+  border-color: var(--light-blue);
+}
+
+::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+  background-color: var(--light-blue);
+  border-color: var(--gray);
+}
+
+::ng-deep .p-checkbox .p-checkbox-box .p-icon {
+  display: none;
+}
+
+/* COLUMN TITLE ICONS */
+::ng-deep .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+  color: var(--gray);
+}
+
+::ng-deep .p-datatable .p-sortable-column:not(.p-highlight) .p-sortable-column-icon {
+  color: var(--gray);
+}
+
+::ng-deep .p-datatable .p-sortable-column:not(.p-highlight):active .p-sortable-column-icon {
+  color: var(--gray);
+}
+
+/* THEAD ROW */
+::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  background-color: var(--navy-blue);
+  color: var(--gray);
+  border-color: var(--blue);
+}
+
+/* TBODY ROWS */
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  background-color: var(--navy-blue);
+  color: var(--gray);
+  border-color: var(--blue);
+  padding: 0.6em;
+  padding-left: 1em;
+  /* border: none; */
+}
+
+/* PAGINATOR */
+::ng-deep .p-paginator {
+  background-color: var(--navy-blue);
+  color: var(--gray);
+}
+
+::ng-deep .p-paginator-current {
+  color: var(--gray);
+}
+
+::ng-deep .p-paginator .p-ripple{
+  color: var(--gray);
+}
+
+::ng-deep .p-paginator .ng-star-inserted {
+  background-color: var(--navy-blue);
+}
+
+::ng-deep .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover {
+  background: none;
+}
+
+::ng-deep .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover {
+  background: none;
+}
+
+/* P-TAG */
+::ng-deep .p-tag-value {
+  font-size: .83em;
+}

@@ -1,0 +1,140 @@
+<div class="home-container">
+  <div class="left-container">
+    <div class="left-header">
+      <div class="">
+        <span class="logo-font title">MEUDIN</span>
+        <p class="">A little help with the finances.</p>
+      </div>
+    </div>
+
+    <div class="left-cards">
+      <div class="home-card">
+        <div class="home-card-header">
+          <i class="card-icon pi pi-fw pi-wallet"></i>
+          Month Balance
+          <p-tag class="home-card-tag" [rounded]="true" [severity]="'warning'">
+            {{ currentMonthName }}
+          </p-tag>
+        </div>
+        <div class="info-card-content">
+          <span class="info-icon">
+            <i class="card-icon pi pi-fw pi-info-circle"></i>
+          </span>
+          <span class="info-content">
+            Card (outcome) spends will not be considered while its invoice has not been paid.
+          </span>
+        </div>
+        <div class="home-card-content">
+          <span class="content-left balance-positive">
+            <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">call_received</i>
+            <b>INCOME</b>
+          </span>
+          <span class="content-right">{{ monthBalance.income | customCurrency }}</span>
+        </div>
+        <div class="home-card-content">
+          <span class="content-left balance-negative">
+            <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">call_made</i>
+            <b>OUTCOME</b>
+          </span>
+          <span class="content-right">{{ monthBalance.outcome | customCurrency }}</span>
+        </div>
+        <div class="home-card-content">
+          <span class="content-left total-balance">
+            <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">account_balance</i>
+            <b>TOTAL BALANCE</b>
+          </span>
+          <span class="content-right">{{ userBalance | customCurrency }}</span>
+        </div>
+        <div class="home-card-footer">
+          <button pButton pRipple
+            (click)="redirect('/wallet')" label="Go to Wallet"
+             iconPos="right" class="home-button"></button>
+        </div>
+      </div>
+
+      <div class="home-card">
+        <div class="home-card-header">
+          <i class="card-icon pi pi pi-fw pi-chart-bar"></i>
+          Month Spends
+          <p-tag class="home-card-tag" [rounded]="true" [severity]="'warning'">
+            {{ currentMonthName }}
+          </p-tag>
+        </div>
+        <div class="info-card-content">
+          <span class="info-icon">
+            <i class="card-icon pi pi-fw pi-info-circle"></i>
+          </span>
+          <span class="info-content">
+            Card (outcome) spends will not be considered while its invoice has not been paid.
+          </span>
+        </div>
+        <div class="home-card-content">
+          <span class="content-left balance-negative">
+            <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">attach_money</i>
+            <b>MOST EXPENSIVE</b>
+          </span>
+          <span class="content-right">{{ spendsData.mostExpensive | customCurrency }}</span>
+        </div>
+        <div class="home-card-content">
+          <span class="content-left balance-positive">
+            <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">paid</i>
+            <b>HIGHEST INCOME</b>
+          </span>
+          <span class="content-right">{{ spendsData.highestIncome | customCurrency }}</span>
+        </div>
+        <div class="home-card-content">
+          <span class="content-left">
+            <i class="material-icons" style="font-size: 1.4rem; padding-right: 2px;">filter_1</i>
+            <b>TOTAL SPENDS REGISTERED</b>
+          </span>
+          <span class="content-right">{{ spendsData.totalSpends }}</span>
+        </div>
+        <div class="home-card-footer">
+          <button pButton pRipple
+            (click)="redirect('/spends')" label="Go to Spends"
+             iconPos="right" class="home-button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-container">
+    <p-accordion [activeIndex]="index">
+      <p-accordionTab header="Get started with MEUDIN" (click)="setActiveIndex()">
+        <p-timeline [value]="events" align="alternate" styleClass="customized-timeline">
+          <ng-template pTemplate="marker" let-event>
+              <span class="custom-marker shadow-2">
+                  <i class="timeline-icon" [ngClass]="event.icon"></i>
+              </span>
+          </ng-template>
+          <ng-template pTemplate="content" let-event>
+              <p-card class="event-card"
+                [header]="event.title"
+                [subheader]="event.subtitle"
+                (click)="redirect(event.url)">
+                  <p>{{event.content}}</p>
+              </p-card>
+          </ng-template>
+        </p-timeline>
+      </p-accordionTab>
+    </p-accordion>
+
+    <div class="chart" *ngIf="chartLoaded">
+      <div class="chart-header">
+        <span class="chart-title">
+          <i class="card-icon pi pi pi-fw pi-filter"></i>
+          Total spent by Category</span>
+        <span class="month-picker">
+          <label class="month-label" for="month">Month Selection</label>
+          <p-calendar
+            (ngModelChange)="onChangeChartMonth($event)" [disabled]="false"
+            inputId="month" [(ngModel)]="chartDate" [showIcon]="true"
+            view="month" dateFormat="mm/yy" [readonlyInput]="true"></p-calendar>
+        </span>
+      </div>
+      <p-chart class="chart-js" type="bar" [data]="data" [options]="options"></p-chart>
+    </div>
+  </div>
+</div>
+
+<app-loading></app-loading>

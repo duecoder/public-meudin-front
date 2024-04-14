@@ -1,0 +1,52 @@
+<p-dialog
+  header="Register new account"
+  [(visible)]="displayRegisterModal"
+  [style]="{width: '40vw'}"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="closeModal()"
+  >
+  <ng-template pTemplate="header">
+    <div class="register-header">
+      <span class="text-xl font-bold dialog-header">
+        <i class="material-icons">face</i>
+        Register new account
+      </span>
+    </div>
+
+    <div class="spinner">
+      <p-progressSpinner
+        *ngIf="loading"
+        [style]="{left: '56px', width: '45px', height: '50px'}">
+      </p-progressSpinner>
+    </div>
+  </ng-template>
+
+  <div *ngIf="firstStep">
+    <app-personal
+      [form]="personalFormData"
+      (closeModalEmit)="closeModal()"
+      (personalFormSubmit)="receivePersonalFormData($event)"
+      (firstStep)="receiveStepBoolean($event)"
+      [resetFormGroup]="resetFormGroup"
+      ></app-personal>
+  </div>
+
+  <div *ngIf="!firstStep">
+    <app-login
+      (loadingEmit)="setLoading($event)"
+      (closeModalEmit)="closeModal()"
+      [personalForm]="personalFormData"
+      [inputLoginForm]="loginFormData"
+      (loginFormSubmit)="receiveLoginFormData($event)"
+      (firstStep)="receiveStepBoolean($event)"
+      ></app-login>
+  </div>
+
+  <ng-template pTemplate="footer">
+
+  </ng-template>
+</p-dialog>
+
+<!-- loading overlay spin -->
+<app-loading></app-loading>

@@ -1,0 +1,31 @@
+<div class="account-container">
+  <div class="side-menu">
+    <span class="side-menu-item"
+          (click)="setActiveItem('account')"
+          [ngClass]="{'side-menu-item-selected': activeMenuItem === 'account'}">
+      <h4>Account</h4>
+      <i class="side-menu-icon material-icons">manage_accounts</i>
+    </span>
+    <span class="side-menu-item"
+      (click)="setActiveItem('categories')"
+      [ngClass]="{'side-menu-item-selected': activeMenuItem === 'categories'}">
+      <h4>Spends Categories</h4>
+      <i class="side-menu-icon material-icons">filter_alt</i>
+    </span>
+    <span class="side-menu-item side-menu-item-disabled"
+      [ngClass]="{'side-menu-item-selected': activeMenuItem === 'bills', 'side-menu-item-disabled': true}">
+      <h4>Recurrent Bills</h4>
+      <i class="side-menu-icon material-icons">payments</i>
+    </span>
+    <span class="side-menu-item side-menu-item-disabled"
+      [ngClass]="{'side-menu-item-selected': activeMenuItem === 'plans', 'side-menu-item-disabled': true}">
+      <h4>Future Plans</h4>
+    <i class="side-menu-icon material-icons">hourglass_bottom</i>
+  </span>
+  </div>
+
+  <div class="content">
+    <app-info-tab *ngIf="activeMenuItem == 'account'"></app-info-tab>
+    <app-categories *ngIf="activeMenuItem == 'categories'"></app-categories>
+  </div>
+</div>

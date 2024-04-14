@@ -1,0 +1,11 @@
+.register-header {
+  display: flex;
+  align-items: center;
+}
+
+.spinner {
+  display: flex;
+  margin: 0 auto;
+  left: 12%;
+  position: relative;
+}

@@ -1,0 +1,70 @@
+.account-container {
+  display: flex;
+  justify-content: center;
+  padding: 1.7em;
+  padding-top: 1.2em;
+}
+
+.side-menu {
+  transition: .4s ease-in-out;
+  width: 45vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu-item {
+  transition: .4s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1em;
+}
+
+.side-menu-item:hover {
+  background: linear-gradient(90deg, rgba(23,26,33,1) 0%, rgba(27,40,56,1) 53%, rgba(42,71,94,1) 100%);
+}
+
+.side-menu-item-selected {
+  background: linear-gradient(90deg, rgba(23,26,33,1) 0%, rgba(27,40,56,1) 53%, rgba(42,71,94,1) 100%);
+}
+
+.side-menu-item-disabled {
+  cursor: default;
+}
+
+.side-menu-item-disabled:hover {
+  background: linear-gradient(90deg, rgba(23,26,33,1) 0%, rgba(56,27,27,1) 100%);
+}
+
+.side-menu-icon {
+  font-size: 2.2em;
+}
+
+.content {
+  width: 120vh;
+  background: var(--navy-blue);
+  border-left: 2px solid var(--blue);
+  border-right: 2px solid var(--blue);
+  border-radius: 0 13px 0px 13px;
+  padding: 1em;
+}
+
+.content-row {
+  display: flex;
+  gap: 2em;
+}
+
+.tab-container {
+  padding: .5em 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 2.3em;
+  min-height: 70vh;
+}
+
+.tab-title {
+  font-weight: bold;
+  font-size: 1em;
+}

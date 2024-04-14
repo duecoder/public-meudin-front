@@ -1,0 +1,61 @@
+
+<div class="register-form">
+  <form [formGroup]="formGroup" class="register-modal">
+    <div class="personal-title">
+      <p>First, enter your personal info</p>
+    </div>
+
+    <div class="register-input">
+      <div class="p-input-icon-left">
+        <i class="pi pi-user"></i>
+        <input
+          tooltipEvent="focus"
+          [pTooltip]="formGroup.controls['name'].invalid  && formGroup.controls['name'].touched ? 'Enter your first name' : ''"
+          [ngClass]="{'input-error': !formGroup.controls['name'].valid && formGroup.controls['name'].touched || nameEmpty}"
+          id="name" type="text" pInputText placeholder="First name" formControlName="name" />
+      </div>
+    </div>
+
+    <div class="register-input">
+      <div class="p-input-icon-left">
+        <i class="pi pi-user"></i>
+        <input
+          tooltipEvent="focus"
+          [pTooltip]="formGroup.controls['surname'].invalid  && formGroup.controls['surname'].touched ? 'Enter your last name' : ''"
+          [ngClass]="{'input-error': !formGroup.controls['surname'].valid && formGroup.controls['surname'].touched || surnameEmpty}"
+          id="surname" type="text" pInputText placeholder="Last name" formControlName="surname" />
+      </div>
+    </div>
+
+    <!-- CPF não vai ser exigido na versão beta -->
+    <!-- <div class="register-input">
+      <div class="p-input-icon-left">
+        <i class="pi pi-credit-card"></i>
+        <input
+          maxlength="14" tooltipEvent="focus"
+          [pTooltip]="!formGroup.controls['cpf'].valid && formGroup.controls['cpf'].touched
+                      || formGroup.controls['cpf'].hasError('cpfLenght') ? 'Enter a valid CPF' : ''"
+          [pTooltip]="existentCpf ? 'CPF already registered' : ''"
+          [ngClass]="{'input-error': !formGroup.controls['cpf'].valid && formGroup.controls['cpf'].touched || cpfEmpty || existentCpf}"
+          id="cpf" type="text" pInputText placeholder="CPF" formControlName="cpf" appCpfMask />
+      </div>
+    </div> -->
+
+    <div class="register-input">
+      <div class="p-input-icon-left">
+        <i class="pi pi-envelope"></i>
+        <input
+          tooltipEvent="focus"
+          [pTooltip]="formGroup.controls['email'].invalid  && formGroup.controls['email'].touched ? 'Enter a valid email' : ''"
+          [ngClass]="{'input-error': !formGroup.controls['email'].valid && formGroup.controls['email'].touched || emailEmpty}"
+          id="email" type="email" pInputText placeholder="Email" formControlName="email" />
+      </div>
+    </div>
+
+    <div class="next-btn">
+      <a role="button" (click)="nextPage()" class="a-next">
+        NEXT <i class="material-icons arrow">east</i>
+      </a>
+    </div>
+  </form>
+</div>

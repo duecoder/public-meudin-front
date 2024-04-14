@@ -1,0 +1,40 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 99%;
+  background-color: var(--bold-blue);
+  border-top: 2px solid var(--navy-blue);
+  padding: 1em 1.7em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px -2px 14px var(--bold-blue);
+}
+
+.footer-text {
+  font-size: .8em;
+  color: var(--blue);
+  transition: .3s ease-in-out;
+}
+
+.footer-text:hover {
+  color: var(--light-blue);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.icons i {
+  font-size: 1.4em;
+  color: var(--blue);
+  transition: .3s ease-in-out;
+  cursor: pointer;
+}
+
+.icons i:hover {
+  color: var(--light-blue);
+}
